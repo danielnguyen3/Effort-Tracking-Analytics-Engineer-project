@@ -1,0 +1,9 @@
+sources:
+  - name: BRONZE
+    database: looker-team-management-386803
+    schema: BRONZE
+    tables:
+      - name: SPRINT_DT
+        identifier: SRC_SPRINT_DT
+      - name: DEV_INF
+        identifier: SRC_DEV_INF
