@@ -41,7 +41,7 @@ models:
     staging:
       +materialized: table
       +schema: BRONZE
-    itermediate:
+    intermediate:
       +materialized: table
       +schema: SILVER
     marts:
