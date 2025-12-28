@@ -19,18 +19,16 @@ I would use Medilian Architecture (Multip-Hop), which contains BRONZE, SILVER An
 - SILVER: Define the logic and metric, and create Fact or Dimension tables
 - GOLD: Presentation layer with provide a final view connect to Looker Studio (BI tool) for analytics
 #### Data Modeling Workflow
-
-> Requirements
+Requirements
 >  **Requirement 1:** Monitor the performance and effort of each developer throughout each Program Increment (PI) and iteration.  
-> 
-> **Requirement 2:** Monitor the development status of the product in the DDE project 
+> **Requirement 2:** Monitor the development status of the product in the DDE project.
 ##### Conceptual Modeling
-###### Select Business Process
+###### **Select Business Process**
 **Business Process 1:** Tracking the development status of each Jira ticket within every iteration.  
 **Business Process 2**: Tracking the logging product status, as reported by the Scrum Master, every week. 
 
 > Purpose: It generates or captures performance measurements (metrics) that translate into facts in the dimensional model.
-###### Declare a grain
+###### **Declare a grain**
 1. Every action that modifies a Jira development ticket.  
 2. Every status update in the product.  
 
