@@ -1,6 +1,6 @@
 
 # Analytics Engineer Project
-This is an Analytics Engineer project that focuses not only on the analytics aspect but also on the engineering side. In this project, I will build an end-to-end BI solution, from gathering requirements and brainstorming the data model to creating the database and designing a meaningful dashboard.
+This is an Analytics Engineer project that focuses  not only on the analytics aspect but also on the engineering side. In this project, I will build an end-to-end BI solution, from gathering requirements and brainstorming the data model to creating the database and designing a meaningful dashboard.
 
 ## Data Engineering Lifecycle
 ### Data Generation
@@ -12,37 +12,41 @@ The data generated from Jira and multiple worksheets in my development team cont
 ### Data Storage
 In this project, I utilize BigQuery to store data for ingestion, transformation, and serving. 
 In this section, I've brainstormed and considered the architecture used in this project. 
-####  Data Architecture Approach
+### Data Architecture Approach
 I would use Medilian Architecture (Multip-Hop), which contains BRONZE, SILVER And GOLD layers. Each layer has a different purpose in processing data
 
 - BRONZE: Store a raw or renamed table from Jira Platform or G-sheets
 - SILVER: Define the logic and metric, and create Fact or Dimension tables
 - GOLD: Presentation layer with provide a final view connect to Looker Studio (BI tool) for analytics
-#### Data Modeling Workflow
-Requirements
->  **Requirement 1:** Monitor the performance and effort of each developer throughout each Program Increment (PI) and iteration.  
-> **Requirement 2:** Monitor the development status of the product in the DDE project.
-##### Conceptual Modeling
-###### **Select Business Process**
+### Data Modeling Workflow
+
+**Requirements**
+**Requirement 1:** Monitor the performance and effort of each developer throughout each Program Increment (PI) and iteration.  
+**Requirement 2:** Monitor the development status of the product in the DDE project 
+
+---
+#### Conceptual Modeling
+##### Select Business Process
 **Business Process 1:** Tracking the development status of each Jira ticket within every iteration.  
 **Business Process 2**: Tracking the logging product status, as reported by the Scrum Master, every week. 
 
-> Purpose: It generates or captures performance measurements (metrics) that translate into facts in the dimensional model.
-###### **Declare a grain**
+=> **Purpose**: It generates or captures performance measurements (metrics) that translate into facts in the dimensional model.
+
+##### Declare a grain
 1. Every action that modifies a Jira development ticket.  
 2. Every status update in the product.  
 
-> Purpose: It answers the question, "How do you describe a single row in the fact table?"
+=> **Purpose**: It answers the question, "How do you describe a single row in the fact table?"
 
-##### Logical Modeling
+#### Logical Modeling
 
-###### Identify Dimensions
+##### Identify Dimensions
 - Developer Info dimension: developer id, Vietnamese name, English name, Spoke Team, Project start date, Project end date, Current flag
 - Sprint date dimension: Sprint name, PI name, Start date, End date, Active flag
 - Ticket Dimension: Ticket ID, Ticket Name, Parent ID, Ticket Status, Start Date, Update Date, Description
 - Product dimension: Product name, Spoke, Product type
 - Capacity dimension: Developer name, working date, on leave flag
-###### Identify Facts
+##### Identify Facts
 **Developer Effort - Period Snapshot Fact Table Approach**
 - Grain: one row per development ticket in a specific period
 - Measurements: Story point
@@ -64,8 +68,9 @@ Requirements
 - Grain: One row per developer capacity in every sprint period
 - Measurements: Capacity day, load day, Total leaves day
 
-##### Physical Modeling
-###### Fact Tables
+#### Physical Modeling
+In this section will define data type and constrains for Fact and dimensions tables
+##### Fact Tables
 
 **Developer Effort** 
 
@@ -92,7 +97,7 @@ CREATE OR REPLACE TABLE SILVER.FCT_DEV_EFRT (
 )
 ```
 
-###### Dimension Tables
+##### Dimension Tables
 
 **Developer Info Dimension**
 
@@ -129,6 +134,7 @@ CREATE OR REPLACE TABLE `SILVER.DIM_DEV_INF` (
 | END_DT      | DATE      |          |
 | CAL_DT      | DATE      |          |
 | ACT_FLG     | BOOL      |          |
+|             |           |          |
 
 ```sql
 CREATE OR REPLACE TABLE `SILVER.DIM_SPRINT_DATE` (
@@ -142,7 +148,7 @@ CREATE OR REPLACE TABLE `SILVER.DIM_SPRINT_DATE` (
 );
 ```
 
-Ticket Dimension
+**Ticket Dimension**
 
 | Column Name | Data Type | Constraint |
 | ----------- | --------- | ---------- |
