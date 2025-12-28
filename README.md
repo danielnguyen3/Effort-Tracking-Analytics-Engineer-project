@@ -64,12 +64,9 @@ I would use Medilian Architecture (Multip-Hop), which contains BRONZE, SILVER An
 | 1XYZF2       | 901       | To Do       | PI18 Iteration 5 | 2025-12-16  |                | 7           |
 
 
-**Developer Capacity - Additive Fact Table Approach**
-- Grain: One row per developer capacity in every sprint period
-- Measurements: Capacity day, load day, Total leaves day
 
 #### Physical Modeling
-In this section will define data type and constrains for Fact and dimensions tables
+In this section will define data type and constraints for the Fact and dimensions tables
 ##### Fact Tables
 
 **Developer Effort** 
