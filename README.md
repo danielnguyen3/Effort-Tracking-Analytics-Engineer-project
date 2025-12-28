@@ -20,7 +20,7 @@ I would use Medilian Architecture (Multip-Hop), which contains BRONZE, SILVER An
 - GOLD: Presentation layer with provide a final view connect to Looker Studio (BI tool) for analytics
 #### Data Modeling Workflow
 
-> [!References] Requirements
+> Requirements
 >  **Requirement 1:** Monitor the performance and effort of each developer throughout each Program Increment (PI) and iteration.  
 > 
 > **Requirement 2:** Monitor the development status of the product in the DDE project 
@@ -60,8 +60,7 @@ I would use Medilian Architecture (Multip-Hop), which contains BRONZE, SILVER An
 | 2CDEF3       | 123       | Done        | PI18 Iteration 5 | 2025-12-16  | 2025-12-16     | 4           |
 | 3GHJK4       | 789       | In Progress | PI18 Iteration 5 | 2025-12-16  |                | 6           |
 | 1XYZF2       | 901       | To Do       | PI18 Iteration 5 | 2025-12-16  |                | 7           |
-|              |           |             |                  |             |                |             |
-|              |           |             |                  |             |                |             |
+
 
 **Developer Capacity - Additive Fact Table Approach**
 - Grain: One row per developer capacity in every sprint period
@@ -132,7 +131,6 @@ CREATE OR REPLACE TABLE `SILVER.DIM_DEV_INF` (
 | END_DT      | DATE      |          |
 | CAL_DT      | DATE      |          |
 | ACT_FLG     | BOOL      |          |
-|             |           |          |
 
 ```sql
 CREATE OR REPLACE TABLE `SILVER.DIM_SPRINT_DATE` (
