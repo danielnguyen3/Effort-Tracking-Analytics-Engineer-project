@@ -35,8 +35,10 @@ I would use Medallion Architecture (Multip-Hop), which contains Bronze, Silver, 
 ![Medallion Architecture](Images/Screenshot_Readme-3.png)
 ### Data Modeling Workflow
 **Requirements**
+
 **Requirement 1:** Monitor the performance and effort of each developer throughout each Program Increment (PI) and iteration.  
 **Requirement 2:** Monitor the development status of the product in the DDE project 
+
 #### Conceptual Modeling
 ##### Select Business Process
 **Business Process 1:** Tracking the development status of each Jira ticket within every iteration.  
@@ -196,3 +198,4 @@ The main goal of the dashboard is to present insights efficiently while minimizi
 ![Dashboard Overview](Images/Screenshot_Readme-6.png)
 
 ![Dashboard Detail](Images/Screenshot_Readme-5.png)
+
