@@ -26,39 +26,40 @@ The action we need to take in this section:
 - ETL Architecture Diagram
 ![ETL Architecture Diagram](Images/Screenshot_Readme-4.png)
 
-### Data Architecture Approach
+## Data Architecture Approach
 I would use Medallion Architecture (Multip-Hop), which contains Bronze, Silver, and Gold layers. Each layer has a different purpose in processing data
 
 - BRONZE: Store a raw or renamed table from Jira Platform or G-sheets
 - SILVER: Define the logic and metric, and create Fact or Dimension tables
 - GOLD: Presentation layer with provide a final view connect to Looker Studio (BI tool) for analytics
 ![Medallion Architecture](Images/Screenshot_Readme-3.png)
-### Data Modeling Workflow
-**Requirements**
+## Data Modeling Workflow
+
+### 1. Requirements
 
 **Requirement 1:** Monitor the performance and effort of each developer throughout each Program Increment (PI) and iteration.  
 **Requirement 2:** Monitor the development status of the product in the DDE project 
 
-#### Conceptual Modeling
-##### Select Business Process
+### 2. Conceptual Modeling
+#### 2.1 Select Business Process
 **Business Process 1:** Tracking the development status of each Jira ticket within every iteration.  
 **Business Process 2**: Tracking the logging product status, as reported by the Scrum Master, every week. 
 
 => **Purpose**: It generates or captures performance measurements (metrics) that translate into facts in the dimensional model.
-##### Declare a grain
+#### 2.2 Declare a grain
 1. Every action that modifies a Jira development ticket.  
 2. Every status update in the product.  
 
 => **Purpose**: It answers the question, "How do you describe a single row in the fact table?"
 
-#### Logical Modeling
-##### Identify Dimensions
+### 3. Logical Modeling
+#### 3.1 Identify Dimensions
 - Developer Info dimension: developer id, Vietnamese name, English name, Spoke Team, Project start date, Project end date, Current flag
 - Sprint date dimension: Sprint name, PI name, Start date, End date, Active flag
 - Ticket Dimension: Ticket ID, Ticket Name, Parent ID, Ticket Status, Start Date, Update Date, Description
 - Product dimension: Product name, Spoke, Product type
 - Capacity dimension: Developer name, working date, on leave flag
-##### Identify Facts
+#### 3.2 Identify Facts
 **Developer Effort - Period Snapshot Fact Table Approach**
 - Grain: one row per development ticket in a specific period
 - Measurements: Story point
@@ -75,11 +76,10 @@ I would use Medallion Architecture (Multip-Hop), which contains Bronze, Silver, 
 | 3GHJK4       | 789       | In Progress | PI18 Iteration 5 | 2025-12-16  |                | 6           |
 | 1XYZF2       | 901       | To Do       | PI18 Iteration 5 | 2025-12-16  |                | 7           |
 
-#### Physical Modeling
+### 4. Physical Modeling
 In this section will define data types and constraints for the Fact and dimensions tables
-##### Fact Tables
 
-**Developer Effort** 
+**Developer Effort - Fact Tables** 
 
 | Column Name | Data Type | Constraint |
 | ----------- | --------- | ---------- |
@@ -104,9 +104,7 @@ CREATE OR REPLACE TABLE SILVER.FCT_DEV_EFRT (
 )
 ```
 
-##### Dimension Tables
-
-**Developer Info Dimension**
+**Developer Info Dimension - Dimension Tables**
 
 | Column name | Data Type |          |
 | ----------- | --------- | -------- |
@@ -130,7 +128,7 @@ CREATE OR REPLACE TABLE `SILVER.DIM_DEV_INF` (
 );
 ```
 
- **Sprint Date Dimension**
+ **Sprint Date Dimension - Dimension Tables**
 
 | Column name | Data Type |          |
 | ----------- | --------- | -------- |
@@ -155,7 +153,7 @@ CREATE OR REPLACE TABLE `SILVER.DIM_SPRINT_DATE` (
 );
 ```
 
-**Ticket Dimension**
+**Ticket Dimension - Dimension Tables**
 
 | Column Name | Data Type | Constraint |
 | ----------- | --------- | ---------- |
@@ -198,4 +196,5 @@ The main goal of the dashboard is to present insights efficiently while minimizi
 ![Dashboard Overview](Images/Screenshot_Readme-6.png)
 
 ![Dashboard Detail](Images/Screenshot_Readme-5.png)
+
 
