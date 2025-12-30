@@ -1,6 +1,4 @@
 # Analytics Engineer Project
-<<<<<<< Updated upstream
-=======
 This is an Analytics Engineer project that focuses not only on the analytics aspect but also on the engineering side. In this project, I will build an end-to-end BI solution, from gathering requirements and brainstorming the data model to creating the database and designing a meaningful dashboard.
 
 The tools: DBT, GCP (BigQuery), Airflow 
@@ -198,4 +196,3 @@ The main goal of the dashboard is to present insights efficiently while minimizi
 ![Dashboard Overview](Images/Screenshot_Readme-6.png)
 
 ![Dashboard Detail](Images/Screenshot_Readme-5.png)
->>>>>>> Stashed changes
