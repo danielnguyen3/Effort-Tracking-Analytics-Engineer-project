@@ -2,7 +2,7 @@
 {{
     config(
         materialized='incremental',
-        unique_key =['TCK_ID','CMP_DT'],
+        unique_key =['TCK_ID','CMP_DT','PI_RP_ID'],
         incremental_strategy='merge',
         on_schema_change='append_new_columns'
     )
