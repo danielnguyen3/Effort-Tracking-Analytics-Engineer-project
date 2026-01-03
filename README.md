@@ -10,7 +10,7 @@ Data Stacks: #DBT, #databricks, #Medallion_Architecture, #dimensional_modeling
 In this project, I decided to apply Medallion Architecture, which contains Bronze, Silver, and Gold Layers. Each layer has a different purpose in processing data.
 - Bronze: Store a raw or renamed table from Jira Platform or Internal working files, ensuring data integrity and traceability
 	-> Output: Tables without transformation
-- Silver: Define the logics, metrics according to business requirements.
+- Silver: Define the logics and metrics according to business requirements.
 	-> Output: Structured tables with aggregated metrics, or transformed columns
 - Gold: Presentation layer with providing a final view connect to BI tools (Looker Studio), ensuring clean and optimized data for reporting
 	-> Output: Final Views with star schema### Data Modeling Workflow
@@ -114,5 +114,6 @@ The main goal of the dashboard is to present insights efficiently while minimizi
 ![Dashboard Overview](Images/Screenshot_Readme-6.png)
 
 ![Dashboard Detail](Images/Screenshot_Readme-5.png)
+
 
 
