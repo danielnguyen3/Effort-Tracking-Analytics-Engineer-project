@@ -3,8 +3,6 @@ This is an Analytics Engineer project that focuses not only on the analytics asp
 
 Data Stacks: #DBT, #databricks, #Medallion_Architecture, #dimensional_modeling
 
-![Project Overview](Images/Screenshot_Readme-1.png)
-
 ## Data Architecture
 ![Medallion Architecture](Images/Screenshot_Readme-3.png)
 In this project, I decided to apply Medallion Architecture, which contains Bronze, Silver, and Gold Layers. Each layer has a different purpose in processing data.
@@ -114,6 +112,7 @@ The main goal of the dashboard is to present insights efficiently while minimizi
 ![Dashboard Overview](Images/Screenshot_Readme-6.png)
 
 ![Dashboard Detail](Images/Screenshot_Readme-5.png)
+
 
 
 
