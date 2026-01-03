@@ -1,3 +1,11 @@
+{{
+    config(materialized='incremental',
+            unique_key = 'DEV_ID',
+            incremental_strategy ='merge',
+            on_schema_change ='append_new_columns'    
+    )
+}}
+
 
 WITH DEV_INF_TRNSF AS (
   SELECT 
@@ -22,3 +30,6 @@ SELECT
     , PJC_SRT_DT
 FROM DEV_INF_TRNSF
 WHERE DEV_ID IS NOT NULL AND DEV_ID !=''
+{% if is_incremental() %}
+AND CLV_SRT_DT >= (SELECT MAX(CLV_SRT_DT) FROM {{this}})
+{% endif %}

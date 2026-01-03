@@ -8,6 +8,7 @@ SELECT
     , A.PRN_FLG
     , B.ENG_NM AS DEV_NM
     , B.SPK_NM
+    , B.ROLE
     , COALESCE(C.PI_NUM,'Undefined') AS PI_NUM
     , COALESCE(C.ITR_ID,'Undefined') AS ITR_ID
     , COALESCE(C.ACT_FLG,FALSE) AS ACT_FLG
@@ -22,3 +23,5 @@ ON A.TCK_ID = D.TCK_ID
 WHERE 1=1
     AND D.TCK_STS NOT IN ('Backlog', 'Cancelled')
     AND PI_RP_ID !='Undefined'
+    AND PRN_FLG IS FALSE
+    AND SPK_NM IS NOT NULL
