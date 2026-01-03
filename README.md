@@ -2,6 +2,7 @@
 This is an Analytics Engineer project that focuses not only on the analytics aspect but also on the engineering side. In this project, I will build an end-to-end BI solution, from gathering requirements and brainstorming the data model to creating the database and designing a meaningful dashboard.
 
 Data Stacks: #DBT, #databricks, #Medallion_Architecture, #dimensional_modeling
+![Project Overview](Images/Screenshot_Readme-1.png)
 
 ## Data Architecture
 ![Medallion Architecture](Images/Screenshot_Readme-3.png)
