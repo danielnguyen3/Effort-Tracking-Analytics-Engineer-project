@@ -1,0 +1,21 @@
+# This is a Databricks asset bundle definition for Effort-Tracking-Analytics-Engineer-project.
+# The Databricks extension requires databricks.yml configuration file.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+
+bundle:
+  name: Effort-Tracking-Analytics-Engineer-project
+
+targets:
+  dev:
+    mode: development
+    default: true
+    variables:
+      catalog: looker_management_uat
+    workspace:
+      host: https://dbc-b0d493b4-f4ea.cloud.databricks.com
+
+  ## Optionally, there could be 'staging' or 'prod' targets here.
+  #
+  # prod:
+  #   workspace:
+  #     host: https://dbc-b0d493b4-f4ea.cloud.databricks.com
