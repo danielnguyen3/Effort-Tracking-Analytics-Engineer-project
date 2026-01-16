@@ -3,21 +3,21 @@ sources:
     database: "{{ target.database }}"
     schema: BRONZE
     tables:
-      - name: SCR_SPRINT_DT
-        identifier: scr_sprint_dt
-      - name: SCR_DEV_INF
-        identifier: scr_dev_inf
+      # - name: SCR_SPRINT_DT
+      #   identifier: scr_sprint_dt
+      # - name: SCR_DEV_INF
+      #   identifier: scr_dev_inf
       - name: SCR_JIRA
         identifier: scr_jira_trns
-  - name: SILVER
-    database: "{{ target.database }}"
-    schema: SILVER
-    tables:
-      - name: SPRINT_DT
-        identifier: dim_sprint_dt
-      - name: DEV_INF
-        identifier: dim_dev_inf
-      - name: TCK_INF
-        identifier: dim_tck_inf
-      - name: DEV_EFRT
-        identifier: fct_dev_efrt
+  # - name: SILVER
+  #   database: "{{ target.database }}"
+  #   schema: SILVER
+  #   tables:
+  #     - name: SPRINT_DT
+  #       identifier: dim_sprint_dt
+  #     - name: DEV_INF
+  #       identifier: dim_dev_inf
+  #     - name: TCK_INF
+  #       identifier: dim_tck_inf
+  #     - name: DEV_EFRT
+  #       identifier: fct_dev_efrt
