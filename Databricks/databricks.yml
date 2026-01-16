@@ -9,8 +9,6 @@ targets:
   dev:
     mode: development
     default: true
-    variables:
-      catalog: looker_management_uat
     workspace:
       host: https://dbc-b0d493b4-f4ea.cloud.databricks.com
 
