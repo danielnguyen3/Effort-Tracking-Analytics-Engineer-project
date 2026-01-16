@@ -1,25 +1,23 @@
 sources:
   - name: BRONZE
-    database: looker-team-management-386803
+    database: "{{ target.database }}"
     schema: BRONZE
     tables:
-      - name: SPRINT_DT
-        identifier: SRC_SPRINT_DT
-      - name: DEV_INF
-        identifier: SRC_DEV_INF
-      - name: JIRA_RAW
-        identifier: SRC_DEV_JIRA
-      - name: JIRA_TRANSF
-        identifier: DEV_JIRA_TRANSF
+      - name: SCR_SPRINT_DT
+        identifier: scr_sprint_dt
+      - name: SCR_DEV_INF
+        identifier: scr_dev_inf
+      - name: SCR_JIRA
+        identifier: scr_jira_trns
   - name: SILVER
-    database: looker-team-management-386803
+    database: "{{ target.database }}"
     schema: SILVER
     tables:
       - name: SPRINT_DT
-        identifier: DIM_SPRINT_DT
+        identifier: dim_sprint_dt
       - name: DEV_INF
-        identifier: DIM_DEV_INF
+        identifier: dim_dev_inf
       - name: TCK_INF
-        identifier: DIM_TCK_INF
+        identifier: dim_tck_inf
       - name: DEV_EFRT
-        identifier: FCT_DEV_EFRT
+        identifier: fct_dev_efrt

@@ -12,6 +12,12 @@ dbt-cloud:
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
 
+# Variables for environment-specific configurations
+# These can be overridden per environment (dev/prod)
+# Usage: dbt run --vars '{"database_name": "your-dev-database"}'
+vars:
+  database_name: 'looker-team-management-386803'  # Default database (can be overridden)
+
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
 # found in the "models/" directory. You probably won't need to change these!
@@ -41,9 +47,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   looker_performance_tracking:
     # Applies to all files under models/example/
-    staging:
-      +materialized: table
-      +schema: bronze
     intermediate:
       +materialized: table
       +schema: silver

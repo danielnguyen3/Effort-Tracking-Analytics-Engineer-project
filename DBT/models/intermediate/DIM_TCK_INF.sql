@@ -7,7 +7,7 @@ WITH TCK_INF_01 AS (
         , STR_DT
         , END_DT
         , COUNT(PI_ID) OVER(PARTITION BY TCK_ID) AS NO_DLAY_PI
-    FROM {{source('BRONZE','JIRA_TRANSF')}}
+    FROM {{source('BRONZE','SCR_JIRA')}}
     WHERE TCK_ID IS NOT NULL
 )
 SELECT DISTINCT

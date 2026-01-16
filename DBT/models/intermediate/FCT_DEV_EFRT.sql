@@ -12,7 +12,7 @@ WITH PRNT_FLG AS (
     SELECT
         PRN_ID
     FROM 
-        {{source('BRONZE','JIRA_TRANSF')}}
+        {{source('BRONZE','SCR_JIRA')}}
     WHERE
         PRN_ID != 'Undefined'
 )

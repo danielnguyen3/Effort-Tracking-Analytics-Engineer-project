@@ -1,1 +1,0 @@
-SELECT * FROM looker_management_dev.bronze.scr_jira
